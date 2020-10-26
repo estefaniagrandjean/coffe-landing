@@ -1,0 +1,263 @@
+/* BASE STYLELS */
+
+/* COLORS */
+$white:#FFFFFF;
+$black:#000000;
+$grey:#adadad;
+$greyLines:#c6c6c6;
+$lightGrey:#dddddd;
+$primaryOrange:#eab96a;
+$secondaryOrange:#cdb47b;
+$customBlue:#485260;
+$titleBlack:#2b2b2b;
+$topBoxGrey:#939393;
+$checkColor:#6a9c00;
+$noColor:#c20000;
+
+/* FONT SIZE */
+
+$baseFontSize:16px;
+$linkFontSize:12.5px;
+$phoneFontSize:27.5px;
+$title:58px;
+$secondTitle:50.5px;
+$tabsFontSize:21px;
+$tabsBgFontSize:202px;
+$tabsTitleSectionFontSize:30.5px;
+$tabsMoneyFontSize:58.8px;
+$tabsMoneySpanFontSize:31.5px;
+$darkBtnFont:14px;
+$titleFontSize2:17.5px;
+
+$letterSpacing:-0.16px;
+
+/* PADDINGS AND MARGINS */
+$paddingNavLinks:12px;
+
+
+/* FONT FAMILY */
+$intro:'Intro';
+$introRust:'IntroRustG';
+$minion:'Minion';
+$playFair:'PlayfairDisplay';
+$playFairExtra:'PlayfairDisplayExtra';
+
+@font-face {
+    font-family: "Intro";
+    src: url('../customfonts/Intro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "IntroRustG";
+    src: url('../customfonts/IntroRustG-Base2Line.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Minion";
+    src: url('../customfonts/MinionPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PlayfairDisplay";
+    src: url('../customfonts/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PlayfairDisplayExtra";
+    src: url('../customfonts/PlayfairDisplay-ExtraBold.ttf') format('ttf');
+}
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flexJustContent($justContent){
+    justify-content: $justContent;
+}
+
+@mixin flexDirection($direction){
+    flex-direction: $direction;
+}
+
+@mixin flexAlignSelf($alignSelf){
+    align-self: $alignSelf;
+}
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex:  $values;
+    -webkit-flex:  $values;
+    -ms-flex:  $values;
+    flex:  $values;
+}
+
+@mixin flexWrap($wrap){
+    -webkit-flex-wrap: $wrap;
+    -ms-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+}
+  
+@mixin order($val) {
+    -webkit-box-ordinal-group: $val;  
+    -moz-box-ordinal-group: $val;     
+    -ms-flex-order: $val;     
+    -webkit-order: $val;  
+    order: $val;
+}
+
+@mixin backgroundAlignment(){
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin separator(){
+    display: block;
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+}
+
+@mixin decoBean(){
+    position: absolute;
+    z-index: 30;
+}
+
+@mixin icon($space, $colorIcon){
+    vertical-align: middle;
+    color:$colorIcon;
+    &:first-child{
+        margin-right: $space;
+    }
+    &:last-child{
+        margin-left: $space;
+    }
+}
+
+@mixin title-1($FontColor, $display){
+    font-family: $introRust;
+    color:$FontColor;
+    font-size: $secondTitle;  
+    display: $display;
+    vertical-align: middle;
+    text-align: center;
+}
+
+@mixin subtitle-1($FontColor, $marginTop){
+    font-family: $minion;
+    color:$FontColor;
+    font-size: $baseFontSize;
+    margin-top: $marginTop;
+    text-align: center;
+}
+
+@mixin title-2($fontSize){
+    font-family: $intro;
+    color:$black;
+    font-size: $fontSize;
+}
+
+/* GENERAL STURCTURES */
+
+
+[class*="--wrapper"] {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1194px;
+    height: 100%;
+}
+
+.header-section{
+    text-align: center;
+}
+
+p{
+    letter-spacing:$letterSpacing;
+}
+
+.button{
+    font-family: $intro;
+    border:1px solid $black;
+    padding: 24px 70px;
+}
+
+.separator img{
+    width: 100%;
+    height: 142px;
+}  
+
+.fa-check{
+    color:$checkColor;
+}
+.fa-times{
+    color:$noColor;
+}
+
+/* GRID */
+
+.grid {
+    @include flexbox;
+    @include flexWrap(wrap);
+}
+
+.grid__item {
+    @include flexbox;
+}
+
+/*.grid {
+    margin: -20px 0 0 -20px;
+}
+
+.grid > .grid__item {
+    padding: 20px 0 0 20px;
+}*/
+
+
+.grid > .grid__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    @include flexDirection(column);
+}
+
+
+@media all and (max-width:750px) {
+
+    .grid > .grid__item {
+        @include flex(0 0 100%);
+        max-width: 100%;
+    }
+}
+
+@media all and (min-width:751px) {
+
+    .grid > .grid__item {
+        @include flex(1);
+    }
+
+    .grid--1 > .grid__item {
+        @include flex(0 0 100%);
+        max-width: 100%;
+    }
+
+    .grid--2 > .grid__item {
+        @include flex(0 0 50%);
+        max-width: 50%;
+    }
+
+    .grid--3 > .grid__item {
+        @include flex(0 0 33.3333%);
+        max-width: 33.3333%;
+    }
+}

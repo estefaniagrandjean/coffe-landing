@@ -1,0 +1,36 @@
+.decorative-bean-7{
+    @include decoBean;
+    height: 275px;
+    left: 0;
+}
+
+.decorative-bean-8{
+    @include decoBean;
+    height: 275px;
+    left: 33px;
+}
+.contact{
+    height: 780px;
+    &-narrow{
+        max-width: 790px;
+        width: 100%;
+        float: right;
+        .header-section{
+            margin-bottom: 77px;
+            padding-top:85px; 
+            
+            .header-title{          
+                h2{
+                    @include title-1($black, block);
+                    text-align: left;
+                    border-bottom:1px solid $black;
+                    padding-bottom: 21px;
+                }
+            }
+            .header-subtitle{
+                @include subtitle-1($customBlue, 47px);
+                text-align: left;
+            }
+        }
+    }
+}

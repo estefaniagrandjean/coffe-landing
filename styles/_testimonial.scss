@@ -1,0 +1,75 @@
+.decorative-bean-6{
+    @include decoBean;
+    height: 275px;
+    right: 33px;
+    margin-top: -160px;
+
+    @media all and (max-width: $mobile) {
+        display:none;
+    }
+}
+
+.testimonial{
+    height: 780px;
+    padding: 0 20px;
+    
+    &-content{
+        .header-section{
+            padding-top:75px; 
+            margin-bottom: 77px;
+            
+            .header-title{          
+                h2{
+                    @include title-1($black, block);
+                }
+            }
+            .header-subtitle{
+                @include subtitle-1($customBlue, 30px);
+            }
+        }
+
+        .testimonial-slider{
+            width: 100%;
+            text-align: center;
+            margin:0 auto 107px;
+
+            .item-image{
+                width: 173px;
+                margin: 0 auto 38px;
+                position: relative;
+
+                i{
+                    padding: 9px 13px;
+                    position: absolute;
+                    top: 20px;
+                    right: -6px;
+                    border-radius: 200px;
+                    background-color: #4267b2;
+                    color:$white;
+                    font-size: 22px;
+                    
+                }
+                img{
+                    width: 173px;
+                    height: 173px;
+                }
+            }
+
+            h4{
+                @include title-2($titleFontSize2);
+                margin-bottom: 12px;
+            }
+
+            p{
+                max-width: 836px;
+                margin: auto;
+                display: block;
+                line-height: 35.5px;
+            }
+
+            .slick-dots{
+                bottom: -55px;
+            }
+        }
+    }
+}

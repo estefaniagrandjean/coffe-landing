@@ -1,0 +1,106 @@
+.decorative-bean-7{
+    @include decoBean;
+    left: 0;
+    top: -90px;
+
+    @media all and (max-width: $desktopM) {
+        right: 50%;
+        left:auto;
+        margin-right: 200px;
+    }
+
+    @media all and (max-width: $mobile) {
+        display: none;
+    }
+}
+
+.decorative-bean-8{
+    @include decoBean;
+    top: 146px;
+    right: 50%;
+    margin-right: 280px;
+
+}
+
+.contact{
+    height: 728px;
+    position: relative;
+
+    &-narrow{
+        max-width: 790px;
+        width: 100%;
+        float: right;
+
+        .header-section{
+            margin-bottom: 104px;
+            padding-top:146px; 
+            
+            .header-title{          
+                h2{
+                    @include title-1($black, block);
+                    text-align: left;
+                    border-bottom:1px solid $black;
+                    padding-bottom: 21px;
+                }
+            }
+            .header-subtitle{
+                @include subtitle-1($customBlue, 13px);
+                text-align: left;
+            }
+        }
+        form{
+
+            input[type=text],
+            input[type=tel]{
+                padding-bottom: 14px;
+                background: transparent;
+                font-size: $linkFontSize;
+                font-family: $intro;
+                color:$black;
+                border:none;
+                border-bottom:1px solid $black;
+            }
+
+            input[type=text]{
+                margin-bottom: 60px;
+            }
+
+            .button-bar{
+                align-self: flex-end;
+                position: relative;
+
+                input[type=submit]{
+                    width: 100%;
+                    max-width: 220px;
+                    margin: auto;
+                    background: transparent;
+                    border: 0.5 solid $black;
+                    color:$black;
+                    font-size: $titleFontSize2;
+
+                    @media all and (max-width: $mobile) {
+                        width: 220px;
+                        margin: 60px 0 0;
+                    }
+                }
+                input:hover[type=submit]{
+                    background-color: $black;
+                    color:$white;
+                }
+                img{
+                    position: absolute;
+                    width: auto;
+                    max-width: 110px;
+                    bottom: 21px;
+                    right: 0;
+
+                    @media all and (max-width: $mobile) {
+                        right: auto;
+                        left: 150px;
+                    }
+                }
+            }
+            
+        }
+    }
+}

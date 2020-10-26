@@ -1,0 +1,57 @@
+$breakpoints: (
+  "phone": 750px,
+  "tablet": 1024px,
+  "desktop": 1366px,
+  "desktopXL": 1800px
+
+)!default;
+
+$media-expressions: (
+  "screen": "screen",
+  "print": "print",
+  "handheld": "handheld",
+  "retina2x": (
+    "(-webkit-min-device-pixel-ratio: 2)",
+    "(min-resolution: 192dpi)"
+  ),
+  "retina3x": (
+    "(-webkit-min-device-pixel-ratio: 3)",
+    "(min-resolution: 350dpi)"
+  )
+) !default;
+
+
+
+/// @example scss - With a single set breakpoint
+///  @include media("<=phone") { }
+///
+/// @example scss - With two set breakpoints
+///  @include media(">phone", "<=tablet") { }
+
+/// @example scss - With a static expression
+///  @include media("retina2x") { }
+
+@mixin media($conditions...) {
+  @for $i from 1 through length($conditions) {
+    $conditions: set-nth(
+      $conditions,
+      $i,
+      parse-expression(nth($conditions, $i))
+    );
+  }
+
+  $branches: get-query-branches($conditions);
+  $query: "";
+
+  @each $branch in $branches {
+    @if (str-length($query) != 0) {
+      $query: $query + ", ";
+    }
+
+    $query: $query + $branch;
+  }
+
+  @media #{$query} {
+    @content;
+  }
+}

@@ -1,0 +1,160 @@
+/* BASE STYLES */
+
+@font-face {
+    font-family: "Intro";
+    src: url('../customfonts/Intro.woff2') format('woff2'),
+    url('../customfonts/Intro.woff') format('woff'),
+    url('../customfonts/Intro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "IntroRustG";
+    src: url('../customfonts/IntroRustG-Base2Line.woff2') format('woff2'),
+    url('../customfonts/IntroRustG-Base2Line.woff') format('woff'),
+    url('../customfonts/IntroRustG-Base2Line.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Minion";
+    src: url('../customfonts/MinionPro-Regular.woff2') format('woff2'),
+    url('../customfonts/MinionPro-Regular.woff') format('woff'),
+    url('../customfonts/MinionPro-Regular.ttf') format('truetype');
+    
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PlayfairDisplay";
+    src: url('../customfonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+    url('../customfonts/PlayfairDisplay-Regular.woff') format('woff'),
+    url('../customfonts/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PlayfairDisplayBlack";
+    src: url('../customfonts/PlayfairDisplay-Black.woff2') format('woff2'),
+    url('../customfonts/PlayfairDisplay-Black.woff') format('woff'),
+    url('../customfonts/PlayfairDisplay-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+/* GENERAL STRUCTURES */
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+    background-image: url("../images/bg-pattern.jpg");
+    background-repeat: repeat;
+    font-family: $minion, Arial, sans-serif;
+    font-size: $baseFontSize;
+    color:$customBlue;
+}
+
+[class*="--wrapper"] {
+    width: 100%;
+    max-width: 1194px;
+    height: 100%;
+    margin: 0 auto;
+
+    @media all and (max-width:$tablet){
+        padding: 0 20px;
+    }
+}
+
+main{
+    width: 100%;
+}
+
+a{
+    color:$white;
+}
+
+p{
+    letter-spacing:$letterSpacing;
+}
+
+.header-section{
+    text-align: center;
+}
+
+.button{
+    font-family: $intro;
+    border:1px solid $black;
+    padding: 20px 74px;
+    transition: all 0.2s ease,
+}
+
+.separator img{
+    width: 100%;
+    height: auto;
+    max-height: 142px;
+}
+
+::placeholder{
+    font-size: $linkFontSize;
+    font-family: $intro;
+    color:$black!important;
+    padding-bottom: 14px;
+}
+
+/* GRID */
+
+.grid {
+    @include flexbox;
+    @include flexWrap(wrap);
+}
+
+.grid__item {
+    @include flexbox;
+}
+
+
+.grid > .grid__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    @include flexDirection(column);
+}
+
+
+@media all and (max-width:750px) {
+
+    .grid > .grid__item {
+        @include flex(0 0 100%);
+        max-width: 100%;
+    }
+}
+
+@media all and (min-width:751px) {
+
+    .grid > .grid__item {
+        @include flex(1);
+    }
+
+    .grid--1 > .grid__item {
+        @include flex(0 0 100%);
+        max-width: 100%;
+    }
+
+    .grid--2 > .grid__item {
+        @include flex(0 0 50%);
+        max-width: 50%;
+    }
+
+    .grid--3 > .grid__item {
+        @include flex(0 0 33.3333%);
+        max-width: 33.3333%;
+    }
+}

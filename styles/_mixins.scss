@@ -1,0 +1,91 @@
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flexJustContent($justContent){
+    justify-content: $justContent;
+}
+
+@mixin flexDirection($direction){
+    flex-direction: $direction;
+}
+
+@mixin flexAlignSelf($alignSelf){
+    align-self: $alignSelf;
+}
+
+@mixin flexAlignItem($alignItem){
+    align-items: $alignItem;
+}
+
+@mixin flex($values) {
+    flex:  $values;
+}
+
+@mixin flexWrap($wrap){
+    flex-wrap: $wrap;
+}
+  
+@mixin order($val) {
+    order: $val;
+}
+
+@mixin backgroundAlignment(){
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin separator(){
+    display: block;
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+}
+
+@mixin decoBean(){
+    position: absolute;
+    z-index: 30;
+}
+
+@mixin icon($space, $colorIcon){
+    vertical-align: middle;
+    color:$colorIcon;
+    &:first-child{
+        margin-right: $space;
+    }
+    &:last-child{
+        margin-left: $space;
+    }
+}
+
+@mixin title-1($FontColor, $display){
+    font-family: $introRust;
+    color:$FontColor;
+    font-size: $secondTitle;  
+    display: $display;
+    vertical-align: middle;
+    text-align: center;
+
+    @media all and (max-width: $tablet) {
+        font-size: $secondTitleMobile; 
+    }
+}
+
+@mixin subtitle-1($FontColor, $marginTop){
+    font-family: $minion;
+    color:$FontColor;
+    font-size: $baseFontSize;
+    margin-top: $marginTop;
+    text-align: center;
+}
+
+@mixin title-2($fontSize){
+    font-family: $intro;
+    color:$black;
+    font-size: $fontSize;
+}

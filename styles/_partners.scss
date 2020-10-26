@@ -1,0 +1,48 @@
+.partners{
+    height: 570px;
+    background-color: rgba(0,0,0,.05);
+    
+
+    &-content{
+        .header-section{
+            padding-top:142px; 
+            margin-bottom: 77px;
+            
+            .header-title{          
+                h2{
+                    @include title-1($black, inline-block);
+                }
+                i{
+                    @media all and (min-width: $notMobile) {
+                        @include icon(51px, $white);
+                    }
+
+                    @include icon(10px, $white);
+
+                    @media all and (max-width: $mobile) {
+                        display: none;
+                    }
+                }
+                &::after{
+                    content:"";
+                    height: 1px;
+                    width: 100%;
+                    max-width: 226px;
+                    margin: auto;
+                    margin-top: 44px;
+                    background-color: $black;
+                    display: block;
+                }
+            }
+        }
+        &-slider{
+            max-width: 1090px;
+            margin: auto;
+        }
+    }
+    
+    @media all and (max-width: $tablet) {
+        padding: 0 20px;
+    }
+
+}

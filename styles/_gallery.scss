@@ -1,0 +1,150 @@
+.decorative-bean-5{
+    @include decoBean;
+    top: -30px;
+    left: 50px;
+
+    @media all and (max-width: $mobile) {
+        display:none;
+    }
+}
+
+.gallery{
+    height: 1180px;
+    position: relative;
+    background-color: #222121;
+    background-image: url('../images/gallery-bg.png');
+    @include backgroundAlignment;
+
+    .separator-bottom{
+        @include separator;
+        bottom: 0px;
+    }
+
+    &-content{
+
+        .header-section{
+            padding-top: 16px;
+            margin-bottom: 59px;
+        
+            .header-title{          
+                h2{
+                    @include title-1($white, inline-block);
+                }
+                i{
+                    @include icon(21px, $black);
+                }
+            }
+            .header-subtitle{
+                @include subtitle-1($white, 37px);
+            }
+        }  
+    }
+    
+    &-slider{
+        position: relative;
+        width: calc( 100% + 280px);
+        left: -140px;
+        right: -140px;
+    
+        .center{
+    
+            .slick-slide {
+                margin: 0px 26px;
+    
+                img{
+                    width: 100%;
+                }
+            }
+    
+            .slick-active{
+                max-width: 763px;
+                filter: grayscale(100%);
+            }
+    
+            .slick-current{
+                max-width: 763px;
+                filter: grayscale(0%);
+            }
+    
+            .slick-prev{
+                width: 69px;
+                height: 69px;
+                left: calc( 50% - 229px);
+                top: auto;
+                bottom: -160px;
+                z-index: 100;
+                border: solid 0.5px $primaryOrange;
+                background-color: transparent;
+    
+                img{
+                    rotate: 180deg;
+                    position: absolute;
+                    top: 20px;
+                    left: 25px;
+                }
+            }
+            .slick-next{
+                width: 69px;
+                height: 69px;
+                right: calc( 50% - 228px);
+                top: auto;
+                bottom: -161px;
+                z-index: 100;
+                border: solid 0.5px $primaryOrange;
+                background-color: transparent;
+    
+                img{
+                    position: absolute;
+                    top: 20px;
+                    right: 25px;
+                }
+            }
+            .slick-dots{
+                bottom: -103px;
+
+                li{
+                    display: none;
+
+                    &.slick-active,
+                    &:last-child{
+                        display: inline-flex;
+                        filter: none;
+                    }
+                    &.slick-active{
+                        &::after{
+                            content:" из ";
+                            display: inline-block;
+                            color:$primaryOrange;
+                        }
+                    }
+
+                    button{
+                        padding-right: 3px;
+                        font-family: $minion;
+                        font-size: 19px;
+                        color: $white;
+                    }
+
+                    ::before{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        @media all and (max-width: $tablet) {
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    @media all and (max-width: $desktopXS) {
+        height: 990px;
+    }
+
+    @media all and (max-width: $tablet) {
+        height: 730px;
+    }
+    
+}

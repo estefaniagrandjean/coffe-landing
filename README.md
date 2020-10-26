@@ -1,1 +1,5 @@
-# coffe-landing
+# coffee-maker
+
+Landing page
+
+///////// NOTES //////////////

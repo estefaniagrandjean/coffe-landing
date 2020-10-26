@@ -1,0 +1,283 @@
+
+/* PROGRAM SECTION */
+
+.program{
+    position: relative;
+    .decorative-bean-2{
+        @include decoBean;
+        left: 0;
+        margin-top: 161px;
+        
+        @media all and (max-width: $mobile) {
+            display: none;
+        }
+    }
+    .decorative-bean-3{
+        @include decoBean;
+        right: 0;
+        margin-top: 300px;
+
+        @media all and (max-width: $tablet) {
+            display: none;
+        }
+    }
+
+    .decorative-bean-4{
+        @include decoBean;
+        right: 0;
+        bottom:-230px;
+
+        @media all and (max-width: $tablet) {
+            display: none;
+        }
+    }
+
+    .header-section{
+        margin-bottom: 98px;
+        padding-top:90px; 
+        
+        .header-title{          
+            h2{
+                @include title-1($black, inline-block);
+            }
+            i{
+                @include icon(37px,$black);
+
+                @media all and (max-width: $mobile) {
+                    @include icon(12px,$black);
+                }
+            }
+        }
+        .header-subtitle{
+            @include subtitle-1($customBlue, 31px);
+        }
+    }
+
+    .program__tabs{
+        ul{
+            @include flexbox;
+            @include flexJustContent(center);
+            margin-bottom: 34px;
+            padding-bottom: 39px;
+            border-bottom:1px solid $greyLines;
+
+            li{
+                @include flexbox;
+                @include flexJustContent(center);
+                @include flex(0 0 33%);
+                max-width: 310px;
+                @include title-2($tabsFontSize);
+                margin-bottom: -41px;
+                padding: 0;
+                
+                &.ui-tab-active,
+                &.ui-state-active,
+                &.ui-state-focus,
+                &.ui-corner{
+                    a{
+                        outline: none;
+                        border:none;
+                        border-bottom:4px solid $black;
+                    }
+                }
+                
+                a{  
+                    font-size: 21px;
+                    color:$grey;
+                    border-bottom: 4px solid transparent;
+                    padding-bottom: 31px;
+                    width: 100%;
+                    text-align: center;
+                    max-width: 255px;
+                    &:hover{
+                        color:$black;
+                        border-bottom:4px solid $black;
+                    }
+                    
+                }
+            }
+        }
+        .tab__container{
+            position: relative;
+            
+            .tab__container__basic{
+                @include flexbox;
+                @include flexJustContent(flex-start);
+                @include flexAlignItem(flex-start);
+                margin-bottom: 82px;
+
+                img{
+                    width: 60%;
+                    max-width: 650px;
+                    margin-top: 63px;
+                    margin-right: 55px;
+                    vertical-align: top;
+                    z-index: 20;
+                }
+
+                .tab__description{
+                    width: 40%;
+                    max-width: 486px;
+                    margin-top: 54px;
+                    z-index: 20;
+                    
+                    h3{
+                        font-family: $playFairExtra;
+                        font-size: $tabsTitleSectionFontSize;
+                        color:$titleBlack;
+                        margin-top: 21px;
+                        margin-bottom: 64px;
+                    }
+                    p{
+                        font-family: $minion;
+                        margin-bottom: 19px;
+                        &+ p{
+                            margin-bottom: 9px;
+                        }
+                        .fas,
+                        .far{
+                            padding-right: 19px;
+                            font-size: 30px;
+                            vertical-align: middle;
+                        }
+
+                        &.money{
+                            margin-bottom: 22px;
+                            font-family: $playFairExtra;
+                            font-size:$tabsMoneyFontSize;
+                            color:$black;
+
+                            span{
+                                font-size:$tabsMoneySpanFontSize;
+                            }
+                        }
+                    }
+
+                    
+
+                    .button--dark{
+                        width: 100%;
+                        max-width: 251px;
+                        display: block;
+                        background-color: $black;
+                        font-size: $darkBtnFont;
+                        color:$white;
+
+                        &:hover{
+                            background-color: transparent;
+                            color:$black;
+                        }
+                    }
+                }
+
+                @media all and (max-width: $mobile) {
+                    @include flexWrap(wrap);
+
+                    img{
+                        width: 100%;
+                        max-width: 100%;
+                        margin-top: 10px;
+                        margin-right: 0;
+                        @include flex(0 0 100%);
+                    
+                    }
+    
+                    .tab__description{
+                        width: 100%;
+                        max-width: 100%;
+                        margin-top: 10px;
+                        margin-right: 0;
+                        @include flex(0 0 100%);
+                        text-align: center;
+                    }
+
+                    .button--dark{
+                        max-width: 80%;
+                        margin:auto;
+                    }
+                }
+            }
+
+            .tab__background{
+                position: absolute;
+                right: 0;
+                top: -49px;
+                font-family: $intro;
+                font-size: $tabsBgFontSize;
+                color:$lightGrey;
+            }
+
+            .tab__expanded-info{
+                margin-bottom: 55px;
+                @include flexJustContent(space-between);
+
+                .grid__item{
+                    max-width: 349px;
+                    border-top:1px solid $topBoxGrey;
+                    
+                    h4{
+                        height: 66px;
+                        margin-top: 21px;
+                        margin-bottom: 32px;
+                        @include flexbox;
+                        @include flexAlignItem(end);
+                        @include title-2($titleFontSize2);
+                        line-height: 24px;
+                        
+                    }
+
+                    p{
+                        line-height: 2.2;
+                        color:$customBlue;
+                    }
+
+                    &:last-child{
+                        max-width: 325px;
+                        h4{
+                            line-height: 24px;
+                            margin-bottom: 33px;
+                        }
+                    }
+
+                    @media all and (max-width: $tablet) {
+                        max-width: 100%;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.tab-table{
+    margin-bottom: 140px;
+
+    h4{
+        margin-bottom: 23px;
+        @include title-2($titleFontSize2);
+    }
+
+    table{
+        width: 100%;
+        max-width: 700px;
+        border-collapse: collapse;
+
+        td{
+            padding: 9px 14px 9px;
+            border:1px solid $black;
+            letter-spacing: $letterSpacing;
+    
+            &:first-child{
+                text-align: center;
+            }
+            
+            .fa-check{
+                color:$checkColor;
+            }
+            .fa-times{
+                color:$noColor;
+            }
+        }
+    }    
+}
